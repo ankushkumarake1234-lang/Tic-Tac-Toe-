@@ -1,14 +1,29 @@
 # 🎮 Tic Tac Toe Game with AI ❌⭕
 
-A professional, fully-featured Tic Tac Toe game built with Python and Pygame, featuring an unbeatable AI powered by the Minimax algorithm.
+A professional, fully-featured Tic Tac Toe game built with Python and Pygame, featuring smooth animations and an unbeatable AI powered by the Minimax algorithm.
 
-![Game Screenshot](assets/background.png)
+## 👨‍💻 Creator
+
+**Ankush Kumar**
+- LinkedIn: [linkedin.com/in/ankush-kumar-60333537b](https://www.linkedin.com/in/ankush-kumar-60333537b/)
+- GitHub: [ankushkumarake1234-lang/Tic-Tac-Toe](https://github.com/ankushkumarake1234-lang/Tic-Tac-Toe)
+
+---
 
 ## ✨ Features
 
 ### 🎯 Game Modes
 - **Player vs Player (PvP)**: Play against a friend locally
 - **Player vs AI (PvE)**: Challenge an unbeatable AI opponent
+
+### 🎨 Animations & Visual Effects (NEW!)
+- **Smooth Scale Animations**: X's and O's smoothly scale up when placed
+- **Fade-In Effects**: Elegant fade-in animations for all elements
+- **Winning Line Animation**: Animated line that draws across winning combinations
+- **Hover Effects**: Visual feedback when hovering over cells
+- **Gradient Buttons**: Beautiful gradient menu buttons with hover states
+- **Game Over Overlay**: Smooth fade-in overlay with results
+- **Credits Animation**: Animated creator credits on main menu
 
 ### 🧠 Artificial Intelligence
 - **Minimax Algorithm**: The AI uses the classic Minimax algorithm with Alpha-Beta pruning
@@ -17,10 +32,11 @@ A professional, fully-featured Tic Tac Toe game built with Python and Pygame, fe
 
 ### 🎨 Graphics & Visuals
 - Beautiful gradient background
-- Custom X and O symbols
+- Custom X and O symbols with smooth animations
 - Clean, modern grid design
 - Smooth visual feedback
-- Game over screen with results
+- Animated game over screen with results
+- Professional UI with shadows and gradients
 
 ### 🔊 Sound & Audio
 - **Move Sound**: Plays when a move is made
@@ -81,35 +97,21 @@ python3 -c "import pygame; print(pygame.version.ver)"
 
 ### Step 3: Download the Game
 
-1. Download or clone this repository
-2. Navigate to the game directory:
+1. Clone this repository:
 ```bash
-cd "Tic Tac Toe ❌⭕"
+git clone https://github.com/ankushkumarake1234-lang/Tic-Tac-Toe.git
+cd Tic-Tac-Toe
 ```
 
-### Step 4: Verify Assets
+Or download the ZIP file and extract it.
 
-Make sure the following structure exists:
-```
-Tic Tac Toe ❌⭕/
-├── tictactoe.py          # Main game file
-├── create_sounds.py      # Sound generator (optional)
-├── README.md            # This file
-└── assets/
-    ├── x.png            # X symbol image
-    ├── o.png            # O symbol image
-    ├── grid.png         # Grid image
-    ├── background.png   # Background image
-    └── sounds/
-        ├── move.wav
-        ├── win.wav
-        ├── draw.wav
-        ├── you_win.wav
-        ├── ai_wins.wav
-        └── draw_voice.wav
+### Step 4: Run the Game
+
+```bash
+python3 tictactoe.py
 ```
 
-All assets are already created and ready to use!
+The game will automatically create the assets folder and generate basic graphics if image files are missing!
 
 ## 🎮 How to Run the Game
 
@@ -141,31 +143,57 @@ python3 tictactoe.py
 ### Starting the Game
 
 1. Run the game
-2. You'll see the main menu with two options:
+2. You'll see the main menu with animated buttons:
    - **Player vs Player**: Play against a friend
    - **Player vs AI**: Challenge the AI
+3. Creator credits are displayed at the bottom
 
 ### During the Game
 
+- **Hover** over cells to see highlight effects
 - **Click** on any empty cell to make your move
+- **Watch** the smooth scale-up animation as your symbol appears
 - **X** always goes first (Player 1)
 - **O** goes second (Player 2 or AI)
 
 ### Game Over
 
 When the game ends, you'll see:
-- The result (Win/Draw)
+- Smooth fade-in overlay
+- Animated winning line (if someone won)
+- The result with emoji
 - Press **R** to restart with the same mode
 - Press **M** to return to the main menu
 
-### Tips for Playing Against AI
+### Animation Features
 
-- The AI is **unbeatable** - it uses perfect play
-- Your best outcome is a **draw**
-- Try to force a draw by:
-  1. Taking the center if AI doesn't
-  2. Blocking AI's winning moves
-  3. Creating defensive positions
+- **Cell Placement**: Symbols smoothly scale from 0 to full size
+- **Winning Line**: A golden line animates across the winning combination
+- **Menu Buttons**: Hover effects with gradient color changes
+- **Game Over**: Smooth overlay fade-in with results
+
+## 🎨 Animation Details
+
+### Scale Animation
+When you place an X or O, it starts at 0% size and smoothly grows to 100%:
+- **Speed**: Controlled by `SCALE_SPEED` constant
+- **Effect**: Creates a "popping in" effect
+
+### Fade Animation
+All elements fade in smoothly:
+- **Alpha Transitions**: Smooth opacity changes
+- **Speed**: Controlled by `FADE_SPEED` constant
+
+### Winning Line Animation
+When someone wins:
+- A golden line draws from start to end of the winning combination
+- **Progress**: 0% to 100% smooth transition
+- **Effect**: Clearly shows which combination won
+
+### Hover Effects
+- Cells glow slightly when mouse hovers over them
+- Menu buttons change gradient colors on hover
+- Provides clear visual feedback
 
 ## 🧠 Understanding the Minimax Algorithm
 
@@ -192,57 +220,84 @@ To optimize performance, the algorithm uses Alpha-Beta pruning:
 - Branches that won't affect the final decision are **pruned** (skipped)
 - This makes the algorithm **much faster** without losing accuracy
 
-### Code Example
+## 📝 Code Structure
 
-```python
-def minimax(self, depth, is_maximizing, alpha=-inf, beta=inf):
-    # Check terminal states (win/loss/draw)
-    if game_over:
-        return score
-    
-    if is_maximizing:  # AI's turn
-        max_score = -inf
-        for each_possible_move:
-            try_move()
-            score = minimax(depth+1, False, alpha, beta)
-            undo_move()
-            max_score = max(max_score, score)
-            alpha = max(alpha, score)
-            if beta <= alpha:
-                break  # Pruning
-        return max_score
-    else:  # Player's turn
-        min_score = inf
-        for each_possible_move:
-            try_move()
-            score = minimax(depth+1, True, alpha, beta)
-            undo_move()
-            min_score = min(min_score, score)
-            beta = min(beta, score)
-            if beta <= alpha:
-                break  # Pruning
-        return min_score
+```
+tictactoe.py
+├── Constants & Enums
+│   ├── Window settings (WIDTH, HEIGHT, etc.)
+│   ├── Colors (BLUE, RED, GREEN, etc.)
+│   ├── Animation settings (speeds, delays)
+│   └── GameMode enumeration
+│
+└── TicTacToe Class
+    ├── __init__()              # Initialize game
+    ├── load_assets()           # Load/create images and sounds
+    ├── reset_game()            # Reset game state
+    │
+    ├── Animation Methods
+    │   ├── add_animation()     # Add cell animation
+    │   ├── update_animations() # Update all animations
+    │   └── draw_gradient_rect()# Draw gradient rectangles
+    │
+    ├── Drawing Methods
+    │   ├── draw_menu()         # Render animated menu
+    │   ├── draw_board()        # Render game board
+    │   └── draw_game_over()    # Render game over screen
+    │
+    ├── Game Logic
+    │   ├── make_move()         # Handle player moves
+    │   ├── check_winner()      # Check for winner
+    │   └── is_board_full()     # Check for draw
+    │
+    ├── AI Methods
+    │   ├── minimax()           # Minimax algorithm
+    │   └── get_best_move()     # Find optimal move
+    │
+    ├── Event Handlers
+    │   ├── handle_menu_click() # Menu interactions
+    │   └── handle_game_click() # Game interactions
+    │
+    └── run()                   # Main game loop
 ```
 
 ## 🎨 Customization
+
+### Adjust Animation Speed
+
+Edit these constants in `tictactoe.py`:
+
+```python
+ANIMATION_SPEED = 15      # Overall animation speed
+FADE_SPEED = 10          # Fade-in speed
+SCALE_SPEED = 0.1        # Symbol scale-up speed
+GLOW_SPEED = 5           # Glow effect speed
+```
+
+### Change Colors
+
+Modify the color constants:
+
+```python
+BLUE = (52, 152, 219)
+RED = (231, 76, 60)
+GREEN = (46, 204, 113)
+GOLD = (255, 215, 0)
+# Add your own!
+```
 
 ### Replace Sounds
 
 You can replace the sound files with your own:
 
 1. Record or download better sound effects
-2. Replace files in `assets/sounds/` folder
+2. Place them in `assets/sounds/` folder
 3. Keep the same filenames and `.wav` format
-
-For voice sounds, you can:
-- Record your own voice
-- Use text-to-speech services (e.g., Google TTS, Amazon Polly)
-- Use AI voice generators
 
 ### Replace Graphics
 
 1. Create your own images
-2. Replace files in `assets/` folder
+2. Place them in `assets/` folder
 3. Recommended sizes:
    - `x.png` and `o.png`: 512x512 pixels
    - `grid.png`: 450x450 pixels
@@ -262,38 +317,17 @@ python3 -m pip install pygame
 
 ### Sound Not Playing
 - Check that sound files exist in `assets/sounds/`
-- Run `python3 create_sounds.py` to regenerate sound files
 - Check your system volume
+- The game will work without sounds
 
-### Game Window Not Appearing
-- Make sure you have a display connected
-- Try running with `python3 -m pygame.examples.aliens` to test pygame
+### Animations Too Fast/Slow
+- Edit the animation speed constants in the code
+- Increase values to slow down, decrease to speed up
 
 ### Performance Issues
 - Close other applications
-- Update your graphics drivers
-- The game is very lightweight and should run on any modern computer
-
-## 📝 Code Structure
-
-```
-tictactoe.py
-├── Constants          # Game settings (colors, sizes, etc.)
-├── GameMode          # Enumeration for game modes
-└── TicTacToe Class
-    ├── __init__()           # Initialize game
-    ├── load_assets()        # Load images and sounds
-    ├── reset_game()         # Reset game state
-    ├── draw_board()         # Render game board
-    ├── draw_menu()          # Render menu
-    ├── draw_game_over()     # Render game over screen
-    ├── make_move()          # Handle player moves
-    ├── check_winner()       # Check for winner
-    ├── is_board_full()      # Check for draw
-    ├── minimax()            # AI algorithm
-    ├── get_best_move()      # Find optimal move
-    └── run()                # Main game loop
-```
+- The game runs at 60 FPS and is very lightweight
+- Update your graphics drivers if needed
 
 ## 🎓 Learning Resources
 
@@ -303,6 +337,7 @@ To learn more about game development and AI:
 - **Minimax Algorithm**: [Wikipedia - Minimax](https://en.wikipedia.org/wiki/Minimax)
 - **Alpha-Beta Pruning**: [Wikipedia - Alpha-Beta Pruning](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning)
 - **Python Game Development**: [Real Python - PyGame Tutorial](https://realpython.com/pygame-a-primer/)
+- **Animation Techniques**: [Pygame Animation Tutorial](https://www.pygame.org/wiki/tutorials)
 
 ## 📄 License
 
@@ -311,21 +346,33 @@ This project is created for educational purposes. Feel free to use, modify, and 
 ## 🤝 Contributing
 
 Suggestions and improvements are welcome! Some ideas:
-- Add difficulty levels for AI
-- Add online multiplayer
-- Add different board sizes (4x4, 5x5)
-- Add animations for moves
-- Add score tracking
-- Add different themes
+- [ ] Add difficulty levels for AI
+- [ ] Add online multiplayer
+- [ ] Add different board sizes (4x4, 5x5)
+- [ ] Add more animation effects
+- [ ] Add score tracking across games
+- [ ] Add different themes/skins
+- [ ] Add particle effects for wins
+- [ ] Add sound toggles in settings
 
-## 👨‍💻 About
+## 🌟 New Features in This Version
 
-Created by a professional Python game developer to demonstrate:
-- Clean, well-commented code
-- Professional game structure
-- AI implementation with Minimax
-- Complete game loop with Pygame
-- Beginner-friendly explanations
+### v2.0 - Animation Update
+- ✨ Smooth scale animations for X's and O's
+- ✨ Fade-in effects for all UI elements
+- ✨ Animated winning line
+- ✨ Hover effects on cells and buttons
+- ✨ Gradient buttons with smooth transitions
+- ✨ Animated game over overlay
+- ✨ Creator credits with fade-in animation
+- ✨ Professional gradient backgrounds
+- ✨ Enhanced visual feedback throughout
+
+## 📞 Contact
+
+**Ankush Kumar**
+- LinkedIn: [linkedin.com/in/ankush-kumar-60333537b](https://www.linkedin.com/in/ankush-kumar-60333537b/)
+- GitHub: [ankushkumarake1234-lang](https://github.com/ankushkumarake1234-lang)
 
 ---
 
@@ -333,7 +380,12 @@ Created by a professional Python game developer to demonstrate:
 
 1. **Install Python** (if needed)
 2. **Install Pygame**: `pip3 install pygame`
-3. **Run the game**: `python3 tictactoe.py`
-4. **Enjoy!** ❌⭕
+3. **Clone/Download** this repository
+4. **Run the game**: `python3 tictactoe.py`
+5. **Enjoy the animations!** 🎮✨
 
-**Have fun playing!** 🎮
+**Made with ❤️ by Ankush Kumar**
+
+---
+
+⭐ If you like this project, please give it a star on GitHub! ⭐
